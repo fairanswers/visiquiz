@@ -1,0 +1,24 @@
+<nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">VisiQuiz</a>
+        <ul class="navbar-nav ml-md-auto d-md-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="<%=root_path%>">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+            <% if current_user %>
+              <li class="nav-item">
+                <%= link_to "User: #{current_user.email}", user_path(current_user), :class => 'nav-link'  %>
+              </li>
+            <% else %>
+              <%= link_to "Sign In", new_user_session_url, :class => 'nav-link'  %>
+              <li class="nav-item">
+                <%= link_to "Sign Up", new_user_registration_url, :class => 'nav-link'  %>
+              </li>
+            <% end %>
+          <li class="nav-item">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'nav-link'  %> 
+          </li>
+        </ul>
+      </div>
+    </nav>

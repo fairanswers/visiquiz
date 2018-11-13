@@ -10,11 +10,16 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/header' %>
     </header>
-    <main role="main">
+
+    <main role="main" class="container" style="margin-top: 60px;" >
+
+      <div class="starter-template">
        <%= render 'layouts/messages' %>
        <%= yield %>
+      </div>
+
     </main>
   </body>
 </html>
