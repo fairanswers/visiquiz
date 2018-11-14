@@ -1,4 +1,13 @@
 <h3>User</h3>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>Quizzes I created</p>
+<p><%= link_to "Create New Quiz", new_quiz_url %></p>
+<% if @user.quizzes %>
+  <table class="table table-hover">
+    <% @user.quizzes.each { |qz| %>
+      <tr><td><%=qz.name%></td><td><%=link_to 'Edit', edit_quiz_url(qz) %></td></tr>
+  </table>
+<% } %>
+
+<% end%>
 

@@ -15,7 +15,6 @@ feature 'Sign out', :devise do
     signin(user.email, user.password)
     expect(page).to have_content "Signed in successfully"
     click_link 'Logout'
-    byebug
     expect(page).to have_content "Signed out successfully"
   end
 
