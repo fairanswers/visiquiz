@@ -1,1 +1,11 @@
-This is the quiz
+<% if @quiz.questions %>
+  <% @quiz.questions.each{ |qs| %>
+    <%= render('questions/question_show' , qs: qs ) %>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+  <%}%>
+<% end%>

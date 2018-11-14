@@ -1,0 +1,8 @@
+<div><strong><%=qs.text%></strong></div>
+<% if qs.answers %>
+  <table class="table table_hover"
+  <% qs.answers.each{ |an| %>
+    <%= render('answers/answer_row', an: an) %>
+  <% } %>
+  </table>
+<% end%>
