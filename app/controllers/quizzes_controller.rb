@@ -24,7 +24,13 @@ class QuizzesController < ApplicationController
   # POST /quizzes
   # POST /quizzes.json
   def create
-    @quiz = Quiz.new(quiz_params)
+    if current_user
+      @quiz = Quiz.new(quiz_params)
+    else
+      flash[:error] = "Not signed in"
+      redirect_to sign_in_url
+    end
+
 
     respond_to do |format|
       if @quiz.save
