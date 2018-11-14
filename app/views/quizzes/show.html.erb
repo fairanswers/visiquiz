@@ -4,6 +4,9 @@
   <strong>Name:</strong>
   <%= @quiz.name %>
 </p>
+<p>
+  <%= render 'quiz' %>
+</p>
 
 
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |

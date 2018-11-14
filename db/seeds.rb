@@ -1,9 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-user = CreateAdminService.new.call
-puts 'CREATED ADMIN USER: ' << user.email
+User.create!([
+  {email: "joe@fairanswers.com", encrypted_password: "$2a$11$SXepz9I7cKGzdRDuhOlV4eJF1nIm7rLuUuJP9PYtyRQpvXZZ82dUS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: nil},
+  {email: "u1@d.com", encrypted_password: "$2a$11$XGz4czozSYpvCx5QUF7ZC.ITfwUxaMIv/16XUoSVr40XTmAtye/Iu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: nil}
+])
+Quiz.create!([
+  {name: "First Quiz", user_id: 1}
+])
