@@ -1,0 +1,11 @@
+<div><strong><%=qs.text%></strong>
+  [<%= link_to 'Edit', '#' %>
+  | <%= button_to 'Delete', question_url(qs), :method=>'delete' ,:confirm=>'Are you sure?' %>]
+</div>
+<% if qs.answers %>
+  <table class="table table_hover"
+  <% qs.answers.each{ |an| %>
+    <%= render('answers/answer_row', an: an) %>
+  <% } %>
+  </table>
+<% end%>

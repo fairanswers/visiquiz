@@ -1,11 +1,6 @@
+<% @editable ||= false #In case it's not set earlier %>
 <% if @quiz.questions %>
   <% @quiz.questions.each{ |qs| %>
-    <%= render('questions/question_show' , qs: qs ) %>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
+    <%= render('questions/question' , qs: qs ) %>
   <%}%>
 <% end%>

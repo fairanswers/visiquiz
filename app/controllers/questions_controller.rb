@@ -54,9 +54,10 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
+    quiz = @question.quiz
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to quiz, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

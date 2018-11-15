@@ -2,5 +2,10 @@
 
 <%= render 'form', quiz: @quiz %>
 
+<p>
+  <%  @editable = true %>
+  <%= render 'quiz' %>
+</p>
+
 <%= link_to 'Show', @quiz %> |
 <%= link_to 'Back', user_url(@quiz.user) %>
