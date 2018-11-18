@@ -15,17 +15,20 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    Question.MAX_ANSWERS.times{@question.answers.build}
   end
 
   # GET /questions/1/edit
   def edit
+    #  Add any blank answers
+    (@question.answers.count..Question.max_answers).each{@question.answers.build}
   end
 
   # POST /questions
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-
+    remove_blank_answers
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question.quiz, notice: 'Question was successfully created.' }
@@ -37,10 +40,19 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def remove_blank_answers
+    for a in @question.answers do
+      if a.text.empty?
+        #a.destroy
+      end
+    end
+  end
+
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
     respond_to do |format|
+      remove_blank_answers
       if @question.update(question_params)
         format.html { redirect_to @question.quiz, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
@@ -70,6 +82,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:text, :url, :quiz_id)
+      params.require(:question).permit(:text, :url, :quiz_id, answers_attributes: [:id, :text, :correct, :url], )
     end
 end

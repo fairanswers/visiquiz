@@ -21,7 +21,21 @@
     <%= form.text_field :url %>
   </div>
 
+  <ol>
+    <%= form.fields_for :answers do |ans| %>
+      <li>
+        <div class="field">
+          <%= ans.label :text %>
+          <%= ans.text_field :text %>
+          <%= form.label :correct %>
+          <%= form.check_box :correct %>
+        </div>
+      </li>
+
+
+    <% end %>
     <%= form.hidden_field :quiz_id %>
+  </ol>
 
   <div class="actions">
     <%= form.submit %>
