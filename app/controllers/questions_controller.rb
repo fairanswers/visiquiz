@@ -14,8 +14,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @question = Question.new
-    Question.MAX_ANSWERS.times{@question.answers.build}
+    @question = Question.new( quiz_id: params[:quiz])
+    Question.max_answers.times{@question.answers.build}
   end
 
   # GET /questions/1/edit
@@ -28,6 +28,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    byebug
     remove_blank_answers
     respond_to do |format|
       if @question.save
@@ -82,6 +83,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:text, :url, :quiz_id, answers_attributes: [:id, :text, :correct, :url], )
+      params.require(:question).permit(:text, :url, :quiz_id, answers_attributes: [:id, :text, :correct, :url, :quiz_id], )
     end
 end
