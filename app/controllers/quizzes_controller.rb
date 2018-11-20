@@ -26,6 +26,7 @@ class QuizzesController < ApplicationController
   def create
     if current_user
       @quiz = Quiz.new(quiz_params)
+      @quiz.user = current_user
     else
       flash[:error] = "Not signed in"
       redirect_to sign_in_url

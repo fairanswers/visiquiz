@@ -3,16 +3,22 @@ User.create!([
   {email: "u1@d.com", encrypted_password: "$2a$11$XGz4czozSYpvCx5QUF7ZC.ITfwUxaMIv/16XUoSVr40XTmAtye/Iu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, name: nil}
 ])
 Answer.create!([
-  {text: "Answer one for q1", correct: nil, question_id: 1},
-  {text: "Answer two for q1", correct: nil, question_id: 1},
-  {text: "Answer three for q1", correct: nil, question_id: 1},
-  {text: "Answer one for q1", correct: nil, question_id: 2},
-  {text: "Answer two for q2", correct: nil, question_id: 2}
+  {text: "1", correct: true, question_id: 13},
+  {text: "2", correct: false, question_id: 13},
+  {text: "1", correct: true, question_id: 14},
+  {text: "2", correct: true, question_id: 14},
+  {text: "a2.1", correct: true, question_id: 15},
+  {text: "b2.1", correct: false, question_id: 15},
+  {text: "Babylon 5", correct: true, question_id: 16},
+  {text: "Deep Space 9", correct: false, question_id: 16}
 ])
 Question.create!([
-  {text: "First Question", url: nil, quiz_id: 1},
-  {text: "Second Question", url: nil, quiz_id: 1}
+  {text: "1", url: "333", quiz_id: 1},
+  {text: "q2", url: "", quiz_id: 1},
+  {text: "q2.1", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Anthonis_van_Dyck_-_Equestrian_Portrait_of_Charles_I_-_National_Gallery%2C_London.jpg/800px-Anthonis_van_Dyck_-_Equestrian_Portrait_of_Charles_I_-_National_Gallery%2C_London.jpg", quiz_id: 2},
+  {text: "What ship is this?", url: "https://wallpapercave.com/wp/tQqjhiZ.jpg", quiz_id: 2}
 ])
 Quiz.create!([
-  {name: "First Quiz", user_id: 1}
+  {name: "First Quiz", user_id: 1},
+  {name: "Quiz 2", user_id: 1}
 ])

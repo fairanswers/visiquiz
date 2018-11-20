@@ -28,7 +28,6 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-    byebug
     remove_blank_answers
     respond_to do |format|
       if @question.save

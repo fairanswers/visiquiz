@@ -1,16 +1,21 @@
 Visiquiz Todos
 
-Better page for new questions
-
-Better landing page for logins.
-
+#TODO
 Remove all the views we're not going to use.
-
-Add images for questions (front end)
 
 Add images for answers (front and back end)
 
+Take Test - Create Score object, create views for test.
+
+# Working
 
 # Done
+Logo *See* what I'm saying
 
-Save 'correct' for answers
+Better page for new questions
+
+Create quiz needs user
+
+Better landing page for logins.
+
+Add images for questions (front end)
