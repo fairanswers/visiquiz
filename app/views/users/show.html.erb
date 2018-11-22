@@ -5,9 +5,12 @@
 <% if @user.quizzes %>
   <table class="table table-hover">
     <% @user.quizzes.each { |qz| %>
-      <tr><td><%=qz.name%></td><td><%= link_to 'View', qz%></td><td><%=link_to 'Edit', edit_quiz_url(qz) %></td></tr>
-  </table>
-<% } %>
-
-<% end%>
-
+      <tr>
+        <td><%=qz.name%></td>
+        <td><%= link_to 'View', qz%></td>
+        <td><%=link_to 'Edit', edit_quiz_url(qz) %></td>
+        <td><%= link_to 'Start Quiz','/start_quiz/'+qz.id.to_s %></td>
+      </tr>
+  <% } %>
+</table>
+<% end %>

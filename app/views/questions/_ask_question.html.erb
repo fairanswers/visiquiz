@@ -1,16 +1,13 @@
 <div>
   <div>
-    <strong><%=qs.text%></strong>
     <% # Note:  Not caching a thumbnail slows this page down %>
     <div class="parent"><div class="img-container"><%= image_tag qs.url, "max-height" => "50" %></div></div>
-    [<%= link_to 'Edit Question', edit_question_url(qs) %>
-    | <%= link_to 'Delete', question_url(qs), :method=>'delete' ,:confirm=>'Are you sure?' %>
-    ]
+    <strong><%=qs.text%></strong>
   </div>
   <% if qs.answers %>
     <table class="table table_hover"
     <% qs.answers.each{ |an| %>
-      <%= render('answers/answer_row', an: an) %>
+      <%= render('answers/ask_answer_row', an: an) %>
     <% } %>
     </table>
   <% end%>

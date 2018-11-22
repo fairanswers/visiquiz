@@ -7,4 +7,14 @@ class Question < ApplicationRecord
   def self.max_answers
     4
   end
+
+  def correct?(id)
+    answers.each do |ans|
+      if ans.id == id && ans.correct
+        return true
+      end
+    end
+  return false
+  end
+
 end

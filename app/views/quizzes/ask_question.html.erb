@@ -1,0 +1,5 @@
+Quiz is <%= @score.quiz_id %>
+<%= form_tag(answer_question_path, method: "post") do %>
+  <%= render('questions/ask_question' , qs: @score.quiz.questions[@current_question] ) %>
+  <%= submit_tag('Next') %>
+<% end %>

@@ -5,9 +5,16 @@ Remove all the views we're not going to use.
 
 Add images for answers (front and back end)
 
-Take Test - Create Score object, create views for test.
+Tests for hijacking score_id on session
+
+Tests for changing user id
+
+Tests for changing quiz id
+
+Test render question no image
 
 # Working
+Take Test - Create Score object, create views for test.
 
 # Done
 Logo *See* what I'm saying

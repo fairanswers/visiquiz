@@ -1,7 +1,50 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy, :add]
 
-  # GET /quizzes
+  def start_quiz
+    @score = Score.new()
+    @score.quiz_id = params[:id]
+    @score.user=current_user
+    @score.save
+    # Keep id in session, but keep score server side for security
+    session[:score_id]=@score.id
+    set_current_question 0
+    redirect_to '/ask_question'
+  end
+
+  def ask_question
+    @score=Score.find(session[:score_id])
+    @current_question = current_question
+  end
+
+  def answer_question
+    @score=Score.find(session[:score_id])
+    @question_index = current_question
+    #byebug
+    qs=@score.quiz.questions[current_question]
+    correct = qs.correct?(params[:answer_id])
+    @score.answer(qs.id.to_s, params[:answer_id], correct )
+    @score.save
+    set_current_question @question_index + 1
+    if qs=@score.quiz.questions[current_question]
+      redirect_to '/ask_question'
+    else
+      redirect_to '/finish_quiz'
+    end
+  end
+
+  def current_question
+    i = session[:question_index] || 0
+    return i
+  end
+
+  #So we can do next/prev/first/last in controller
+  def set_current_question(qi)
+    session[:question_index]=qi
+    return qi
+  end
+
+# GET /quizzes
   # GET /quizzes.json
   def index
     @quizzes = Quiz.all
