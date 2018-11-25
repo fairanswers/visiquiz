@@ -4,5 +4,6 @@
     <%= render('questions/question' , qs: qs ) %>
   <%}%>
 <% end%>
-<%= link_to "Add Question", new_question_path(quiz: @quiz),  class: "btn btn-lg btn-primary" %>
+<%= link_to "Add Question", new_question_path(quiz: @quiz),  class: "btn btn-lg btn-primary"  if not @score %>
+<%= link_to "Back", user_path(@quiz.user),  class: "btn btn-lg btn-primary"  if @score %>
 </div>

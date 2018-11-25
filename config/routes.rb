@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get  '/start_quiz/:id', to: 'quizzes#start_quiz'
   get  '/ask_question', to: 'quizzes#ask_question'
   post '/answer_question', to: 'quizzes#answer_question'
-  get  '/finish_quiz/:id', to: 'quizzes#finish_quiz'
+  get  '/show_results', to: 'quizzes#show_results'
 end

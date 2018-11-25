@@ -1,6 +1,8 @@
 Visiquiz Todos
 
 #TODO
+If user is signed in, redirect to the user's page.
+
 Remove all the views we're not going to use.
 
 Add images for answers (front and back end)

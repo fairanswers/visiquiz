@@ -1,1 +1,7 @@
-<tr><td><%=an.text%></td><td><%=an.correct%></td></tr>
+<tr>
+  <% if correct %>
+    <td><%=an.text%></td><td>Correct!</td>
+  <% else %>
+    <td><%=an.text%></td><td><%=an.correct%></td>
+  <% end %>
+</tr>

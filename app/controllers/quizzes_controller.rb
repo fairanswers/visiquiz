@@ -12,6 +12,13 @@ class QuizzesController < ApplicationController
     redirect_to '/ask_question'
   end
 
+  def show_results
+    @score=Score.find(session[:score_id])
+    @quiz=@score.quiz
+    render :show
+
+  end
+
   def ask_question
     @score=Score.find(session[:score_id])
     @current_question = current_question
@@ -29,7 +36,7 @@ class QuizzesController < ApplicationController
     if qs=@score.quiz.questions[current_question]
       redirect_to '/ask_question'
     else
-      redirect_to '/finish_quiz'
+      redirect_to '/show_results'
     end
   end
 
