@@ -10,7 +10,7 @@ class Question < ApplicationRecord
 
   def correct?(id)
     answers.each do |ans|
-      if(ans.id == id && ans.correct?(ans.id) )
+      if(ans.id == id && ans.correct )
         return true
       end
     end

@@ -1,7 +1,15 @@
 <tr>
-  <% if correct %>
-    <td><%=an.text%></td><td>Correct!</td>
-  <% else %>
-    <td><%=an.text%></td><td><%=an.correct%></td>
+  <!-- I must have spend two hours trying to get icons working for this row. I've bought a book to cover the gap. Joe -->
+  <td><%=an.text%></td>
+  <% if an.selected %>
+    <% if correct %>
+      <td>
+        Right!
+      </td>
+    <% else %>
+      <td>
+        Wrong!
+      </td>
+    <% end %>
   <% end %>
 </tr>
