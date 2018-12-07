@@ -14,9 +14,10 @@ RSpec.describe Score, type: :model do
     expect(s.decisions).not_to be nil
   end
 
-  it " should have json decisions" do
+  it " should have json decisions " do
     s=Score.new()
     s.answer(1,2,true)
+    s.answer(2,3,false)
     expect(s.decisions).not_to be nil
     j=JSON.parse s.decisions
 
@@ -24,5 +25,6 @@ RSpec.describe Score, type: :model do
     expect(j[1.to_s]).not_to be nil
     expect(j[1.to_s][0]).to be 2
     expect(j[1.to_s][1]).to be true
+    expect(j[2.to_s][1]).to be false
   end
 end

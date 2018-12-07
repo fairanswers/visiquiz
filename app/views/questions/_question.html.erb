@@ -10,7 +10,7 @@
   <% if qs.answers %>
     <table class="table table_hover"
     <% qs.answers.each{ |an| %>
-      <%= render('answers/answer_row', an: an, correct: qs.correct?(an.id)) %>
+      <%= render('answers/answer_row', an: an, is_correct: qs.correct?(an.id)) %>
     <% } %>
     </table>
   <% end%>

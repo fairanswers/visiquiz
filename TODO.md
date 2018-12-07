@@ -5,7 +5,9 @@ If user is signed in, redirect to the user's page.
 
 Remove all the views we're not going to use.
 
-Add images for answers (front and back end)
+Add images as optionfs for answers (front and back end)
+
+Show results with check or X images
 
 Tests for hijacking score_id on session
 
