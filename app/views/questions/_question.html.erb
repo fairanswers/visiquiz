@@ -15,9 +15,8 @@
             each instance, I keep the instance state in score and refer everything back to the quiz.
       %>
       <% if score %>
-        <%= render('answers/answer_row', an: an, is_selected: score.is_selected(qs.id, an.id), is_correct: qs.correct?(an.id)) %>
+        <%= render('answers/answer_row', an: an, is_selected: score.is_selected(qs.id, an.id), is_correct: an.correct) %>
       <% else %>
-        <% byebug %>
         <%= render('answers/answer_row', an: an, is_selected: false, is_correct: an.correct) %>
       <% end %>
     <% } %>
