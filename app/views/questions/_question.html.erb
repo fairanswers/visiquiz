@@ -17,7 +17,8 @@
       <% if score %>
         <%= render('answers/answer_row', an: an, is_selected: score.is_selected(qs.id, an.id), is_correct: qs.correct?(an.id)) %>
       <% else %>
-        <%= render('answers/answer_row', an: an, is_selected: false, is_correct: qs.correct?(an.id)) %>
+        <% byebug %>
+        <%= render('answers/answer_row', an: an, is_selected: false, is_correct: an.correct) %>
       <% end %>
     <% } %>
     </table>
