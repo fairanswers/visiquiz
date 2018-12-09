@@ -9,9 +9,24 @@ class Question < ApplicationRecord
   end
 
   def correct?(id)
+    #If we pass the object, get the id
+    if id.is_a? Answer
+      id = id.id
+    else
+      # convert str to number
+      if id.is_a? String
+        id = id.to_i
+      end
+    end
+    # For each answer
     answers.each do |ans|
-      if(ans.id == id && ans.correct )
-        return true
+      # if this is the right one
+      #byebug
+      if(ans.id == id)
+        # if(ans.correct)
+          return true
+        # end
+        # return false
       end
     end
   return false

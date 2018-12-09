@@ -1,7 +1,7 @@
 <% @editable ||= false #In case it's not set earlier %>
 <% if @quiz.questions %>
   <% @quiz.questions.each{ |qs| %>
-    <%= render('questions/question' , qs: qs ) %>
+    <%= render('questions/question' , qs: qs, score: @score ) %>
   <%}%>
 <% end%>
 <%= link_to "Add Question", new_question_path(quiz: @quiz),  class: "btn btn-lg btn-primary"  if not @score %>

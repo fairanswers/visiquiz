@@ -8,8 +8,16 @@ class Score < ApplicationRecord
     self.decisions = tmp.to_json
   end
 
-  def get_selected_answer(question_id)
-    #self.decisions.split("],").each
+  def is_selected(question_id, answer_id)
+    json = JSON.parse self.decisions || "{}"
+#    byebug
+    selected = json[question_id.to_s]
+    if selected
+      if selected == answer_id
+        return true
+      end
+    end
+    return false
   end
 
   def show_icon

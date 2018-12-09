@@ -1,7 +1,9 @@
 Visiquiz Todos
 
 #TODO
-If user is signed in, redirect to the user's page.
+Work on is_correct for view modes is_selected for viewing and testing modes.
+
+Go through create/edit/take quiz scenarios again.  Add integration testing.
 
 Remove all the views we're not going to use.
 
@@ -21,6 +23,8 @@ Test render question no image
 Take Test - Create Score object, create views for test.
 
 # Done
+If user is signed in, redirect to the user's page.
+
 Logo *See* what I'm saying
 
 Better page for new questions

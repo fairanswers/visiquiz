@@ -10,7 +10,15 @@
   <% if qs.answers %>
     <table class="table table_hover"
     <% qs.answers.each{ |an| %>
-      <%= render('answers/answer_row', an: an, is_correct: qs.correct?(an.id)) %>
+      <%# This took a bit of design.  Since almost all the info is in the quiz, the only thing you need to know for the score
+            is what was selected. Which answer is correct is stored in the quiz.  Instead of duplicating the entire quiz for
+            each instance, I keep the instance state in score and refer everything back to the quiz.
+      %>
+      <% if score %>
+        <%= render('answers/answer_row', an: an, is_selected: score.is_selected(qs.id, an.id), is_correct: qs.correct?(an.id)) %>
+      <% else %>
+        <%= render('answers/answer_row', an: an, is_selected: false, is_correct: qs.correct?(an.id)) %>
+      <% end %>
     <% } %>
     </table>
   <% end%>

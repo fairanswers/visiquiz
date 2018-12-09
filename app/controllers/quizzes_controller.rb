@@ -30,7 +30,7 @@ class QuizzesController < ApplicationController
     #byebug
     qs=@score.quiz.questions[current_question]
     correct = qs.correct?(params[:answer_id])
-    @score.answer(qs.id.to_s, params[:answer_id], correct )
+    @score.answer(qs.id, params[:answer_id].to_i, correct )
     @score.save
     set_current_question @question_index + 1
     if qs=@score.quiz.questions[current_question]
