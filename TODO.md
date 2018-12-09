@@ -2,6 +2,7 @@ Visiquiz Todos
 
 #TODO
 Work on is_correct for view modes is_selected for viewing and testing modes.
+  need to show is correct on view, nothing on testing, is correct and is selected if completed test.
 
 Go through create/edit/take quiz scenarios again.  Add integration testing.
 
