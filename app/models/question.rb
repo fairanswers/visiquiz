@@ -21,7 +21,7 @@ class Question < ApplicationRecord
     # For each answer
     answers.each do |ans|
       # if this is the right one
-      #byebug
+      byebug
       if(ans.id == id)
         # if(ans.correct)
           return true
