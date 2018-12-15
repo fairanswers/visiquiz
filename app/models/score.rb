@@ -4,16 +4,19 @@ class Score < ApplicationRecord
 
   def answer(question_id, answer_id, correct)
     tmp = JSON.parse self.decisions || "{}"
-    tmp[question_id]= [answer_id, correct]
+    tmp[question_id.to_s]= [answer_id.to_s, correct]
     self.decisions = tmp.to_json
   end
 
   def is_selected(question_id, answer_id)
-    json = JSON.parse self.decisions || "{}"
+    tjson = JSON.parse self.decisions || "{}"
 #    byebug
-    selected = json[question_id.to_s]
+    if not tjson[question_id.to_s]
+      return false
+    end
+    selected = tjson[question_id.to_s][0]
     if selected
-      if selected == answer_id
+      if selected == answer_id.to_s
         return true
       end
     end

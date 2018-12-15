@@ -1,13 +1,15 @@
 <tr>
   <!-- I must have spend two hours trying to get icons working for this row, but I can't get the CSS right. I've bought a book to cover the gap. Joe -->
   <td><%=an.text%></td>
-  <% if is_correct %>
-    <td>
-      Right!
-    </td>
-  <% else %>
-    <td>
-      Wrong!
-    </td>
-  <% end %>
+  <% if is_selected %>
+    <% if is_correct %>
+      <td>
+        Right!
+      </td>
+    <% else %>
+      <td>
+        Wrong!
+      </td>
+    <% end %>
+  <% end%>
 </tr>
