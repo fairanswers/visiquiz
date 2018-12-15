@@ -14,7 +14,6 @@
             is what was selected. Which answer is correct is stored in the quiz.  Instead of duplicating the entire quiz for
             each instance, I keep the instance state in score and refer everything back to the quiz.
       %>
-      <%byebug%>
       <% if score %>
         <%= render('answers/answer_row', an: an, is_selected: score.is_selected(qs.id, an.id), is_correct: an.correct) %>
       <% else %>

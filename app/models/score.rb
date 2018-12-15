@@ -10,7 +10,6 @@ class Score < ApplicationRecord
 
   def is_selected(question_id, answer_id)
     tjson = JSON.parse self.decisions || "{}"
-#    byebug
     if not tjson[question_id.to_s]
       return false
     end

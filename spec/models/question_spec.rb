@@ -14,7 +14,7 @@ RSpec.describe Question, type: :model do
     an1.save
     an2=Answer.new(text: "Right Answer", question: qs, correct: true)
     an2.save
-    expect(qs.correct?(an1)).not_to be true
+    expect(qs.correct?(an1)).to be false
     expect(qs.correct?(an2)).to be true
 
     qs2=Question.new(text: "Second Question", quiz: qz)

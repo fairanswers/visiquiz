@@ -13,7 +13,6 @@ RSpec.describe Score, type: :model do
     s.answer(1,7,true)
     #get one wrong
     s.answer(2,4,false)
-    byebug
     expect(s.is_selected(1,7)).to be true
     expect(s.is_selected(2,4)).to be true
     #Does not exist

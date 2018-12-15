@@ -21,12 +21,11 @@ class Question < ApplicationRecord
     # For each answer
     answers.each do |ans|
       # if this is the right one
-      #byebug
       if(ans.id == id)
-        # if(ans.correct)
+        if(ans.correct)
           return true
-        # end
-        # return false
+        end
+        return false
       end
     end
   return false
